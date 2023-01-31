@@ -1,1 +1,4 @@
 Louis[n] went[v] to the store[n], and it was fun[a]. He taught[v] the class[n].
+
+
+Once upon a time, there was a curious[a] otter[n] named Skip[n]. One day, Skip[n] went[v] to the mystical forest to buy[v] some berries. However, on the way, Skip[n] met a wise[a] owl[n] who offered to take[v] Skip[n] on a wild adventure! Together, they went on a journey to find the fabled[a] treasure[n] and had many daring[a] experiences along the way. In the end, they found the glittering[n] diamonds.

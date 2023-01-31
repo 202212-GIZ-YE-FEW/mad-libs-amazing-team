@@ -110,3 +110,16 @@ getRawStory().then(parseStory).then((processedStory) => {
   showStory(processedStory);
   liveUpdate();
 });
+
+// Start of hotkeys code
+document.addEventListener("keyup", function (event) {
+  if (event.keyCode === 13) {
+    const fields = document.querySelectorAll(".textfield");
+    let currentField = event.target;
+    let currentIndex = Array.from(fields).indexOf(currentField);
+    let nextField = fields[currentIndex + 1];
+    if (nextField) {
+      nextField.focus();
+    }
+  }
+});
