@@ -1,0 +1,43 @@
+name: Create issue and pull request
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  create-issue-and-pull-request:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Create an issue
+      run: |
+        echo "## Title" > ISSUE_TEMPLATE.md
+        echo "Description" >> ISSUE_TEMPLATE.md
+        hub issue create -F ISSUE_TEMPLATE.md
+
+    - name: Create a branch
+      run: |
+        ISSUE_NUMBER=$(cat ISSUE_TEMPLATE.md | hub issue create -f %I)
+        BRANCH_NAME="issue-$ISSUE_NUMBER"
+        git checkout -b $BRANCH_NAME
+
+    - name: Add changes
+      run: |
+        echo "Changes" > ISSUE_TEMPLATE.md
+        git add ISSUE_TEMPLATE.md
+
+    - name: Commit changes
+      run: |
+        git commit -m "Fixes #$ISSUE_NUMBER"
+
+    - name: Push changes
+      run: |
+        git push -u origin $BRANCH_NAME
+
+    - name: Create a pull request
+      run: |
+        hub pull-request -b main -h $BRANCH_NAME -m "Resolves #$ISSUE_NUMBER"
