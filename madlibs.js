@@ -97,7 +97,7 @@ function liveUpdate() {
   const prevBlanks = document.querySelectorAll(".madLibsPreview span");
 
   editBlanks.forEach((input, index) => {
-    input.addEventListener("input", (e) => {
+    input.addEventListener("input", e => {
       prevBlanks[index].innerHTML = e.target.value;
     });
   });
@@ -144,3 +144,20 @@ else {
     "The 'addEventListener' method is not supported by this browser"
   );
 }
+
+//! adding actions
+//* cancel button
+const cancel = document.getElementById("cancel-btn");
+cancel.innerText = "reset";
+
+cancel.addEventListener('click', () => {
+  const editBlanks = document.querySelectorAll(".madLibsEdit input");
+  const prevBlanks = document.querySelectorAll(".madLibsPreview span");
+  editBlanks.forEach(item => {
+    item.value = ""
+  });
+  prevBlanks.forEach(item => {
+    item.innerHTML = ""
+  });
+});
+
