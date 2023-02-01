@@ -65,6 +65,10 @@ function showStory(processedStory) {
   const editDOM = document.querySelector(".madLibsEdit");
   const previewDOM = document.querySelector(".madLibsPreview");
 
+  // Reset two DOM elements
+  editDOM.innerHTML = "";
+  previewDOM.innerHTML = "";
+
   processedStory.forEach((wordObj, index) => {
     if (wordObj.hasOwnProperty("pos")) {
       //? Input For Edit
@@ -93,33 +97,11 @@ function liveUpdate() {
   const prevBlanks = document.querySelectorAll(".madLibsPreview span");
 
   editBlanks.forEach((input, index) => {
-    input.addEventListener("input", (e) => {
+    input.addEventListener("input", e => {
       prevBlanks[index].innerHTML = e.target.value;
     });
   });
 }
-
-/**
- * All your other JavaScript code goes here, inside the function. Don't worry about
- * the `then` and `async` syntax for now.
- *
- * You'll want to use the results of parseStory() to display the story on the page.
- */
-
-// Get the raw story data as a Promise object
-getRawStory()
-  .then(
-    // Once the raw story data is available, parse it
-    parseStory
-  )
-  .then(
-    // After the story has been parsed, pass it as an argument to the "showStory" function
-    (processedStory) => {
-      showStory(processedStory);
-      // Call the "liveUpdate" function
-      liveUpdate();
-    }
-  );
 
 // Start of hotkeys code
 
@@ -162,3 +144,20 @@ else {
     "The 'addEventListener' method is not supported by this browser"
   );
 }
+
+//! adding actions
+//* cancel button
+const cancel = document.getElementById("cancel-btn");
+cancel.innerText = "reset";
+
+cancel.addEventListener('click', () => {
+  const editBlanks = document.querySelectorAll(".madLibsEdit input");
+  const prevBlanks = document.querySelectorAll(".madLibsPreview span");
+  editBlanks.forEach(item => {
+    item.value = ""
+  });
+  prevBlanks.forEach(item => {
+    item.innerHTML = ""
+  });
+});
+
