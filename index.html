@@ -4,16 +4,18 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Madlibs</title>
+        <title data-key="title">Madlibs</title>
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <h1 id="header">
-            Mad
+        <select class="lang-switcher">
+            <option value="en">English</option>
+            <option value="ar">Arabic (العربية)</option>
+        </select>
+        <h1 id="header" data-key="title">
             <img src="images/fun.jfif" id="img" alt="The Mad Libs background Image">
-            Libs
         </h1>
-        <h5 id="smallheader">your way to make fun</h5>
+        <h5 id="smallheader" data-key="sub-title"></h5>
         <div class="main">
             <div class="madLibsEdit"></div>
             <div class="madLibsPreview"></div>
@@ -22,9 +24,11 @@
             <button type="button" id="cancel-btn"></button>
         </div>
         <footer>
-            <p>Made with ❤️ By mad-libs-amazing-team</p>
+            <p data-key="made-by"></p>
         </footer>
+        <script src="init.js"></script>
         <script src="do-not-touch.js"></script>
+        <script src="locale.js"></script>
         <script src="madlibs.js"></script>
     </body>
 </html>
