@@ -166,6 +166,8 @@ else {
 //! adding actions
 //* cancel button
 const cancel = document.getElementById("cancel-btn");
+cancel.innerText = "reset";
+
 cancel.addEventListener('click', () => {
   const editBlanks = document.querySelectorAll(".madLibsEdit input");
   const prevBlanks = document.querySelectorAll(".madLibsPreview span");
