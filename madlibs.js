@@ -72,6 +72,7 @@ function showStory(processedStory) {
       blankEdit.type = "text";
       blankEdit.maxLength = "20";
       blankEdit.placeholder = `${wordObj.pos}`;
+      blankEdit.setAttribute("onkeypress", "return event.which != 32");
       editDOM.appendChild(blankEdit);
 
       //? Input For Preview

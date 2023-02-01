@@ -42,13 +42,6 @@ body {
    color: rgb(215, 215, 191);
    font-size: 20px;
    font-weight: bold;
-
-   /* background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
-        -webkit-background-clip: text;
-        -moz-background-clip: text;
-        background-clip: text;
-        color: transparent;*/
-
 }
 
 .main {
@@ -56,38 +49,37 @@ body {
    align-items: center;
    flex-direction: row;
    justify-content: space-between;
-   padding: 20px;
-   padding-top: 60px;
+   padding: 10px;
+   padding-top: 40px;
 }
 
 .madLibsEdit {
+   background-color: rgba(0,0,0,0.6);
    width: 50%;
-   height: 300px;
-   background-color: rgba(0, 0, 0, 0.5);
-   margin: 10px;
-   padding: 40px;
    border-radius: 10px;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   font-size: 20px;
-   color: rgb(189, 173, 195);
-   line-height: 40px;
+   padding: 2rem 1rem;
+   line-height: 2.3rem;
+   color: rgb(231, 247, 247);
+   font-weight: 600;
+   font-family:'Times New Roman', Times, serif;
+   font-size: 18px;
+   margin: 10px;
+   border: 2px rgb(0, 0, 0) solid;
    /*margin-bottom: 100px;*/
 
 }
 
 .madLibsPreview {
+   background-color: rgba(0,0,0,0.6);
    width: 50%;
-   height: 300px;
-   padding: 40px;
-   background-color: rgba(0, 0, 0, 0.5);
-   margin: 10px;
    border-radius: 10px;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   padding: 2rem 3rem;
+   line-height: 2.3rem;
+   color: rgb(231, 247, 247);
+   font-weight: 600;
+   font-family:'Times New Roman', Times, serif;
    font-size: 20px;
-   color: rgb(189, 173, 195);
-   line-height: 40px;
-
-
+   border: 2px rgb(0, 0, 0) solid;
 }
 
 .prev-blank {
@@ -102,6 +94,36 @@ p {
    margin-bottom: 40px;
    color: wheat;
 }
+
+input{
+   width: 95px;
+   height: 25px;
+   border-radius: 15px;
+   border-color: rgb(17, 65, 65);
+   text-align: center;
+   font-family: 'Montserrat', sans-serif;
+   color: rgb(5, 28, 28) ;
+  font-size: 20px;
+ 
+   
+ }
+
+ input:focus-within{
+   outline: none;
+   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+   border: 1px solid rgba(81, 203, 238, 1);
+   
+ }
+ input:hover{
+   font-size: 1.4em;
+   color: #ba9c9c;
+ }
+
+ ::placeholder {
+   color: rgb(5, 28, 28) ;
+   font-style: italic; 
+   font-size: 16px;
+ }
 
 @media only screen and (max-width:768px) {
    body {
