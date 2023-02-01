@@ -114,7 +114,7 @@ getRawStory().then(parseStory).then((processedStory) => {
 // Start of hotkeys code
 document.addEventListener("keyup", function (event) {
   if (event.keyCode === 13) {
-    const fields = document.querySelectorAll(".textfield");
+    const fields = document.querySelectorAll('.madLibsEdit input');
     let currentField = event.target;
     let currentIndex = Array.from(fields).indexOf(currentField);
     let nextField = fields[currentIndex + 1];
