@@ -76,12 +76,13 @@ function showStory(processedStory) {
       blankEdit.type = "text";
       blankEdit.maxLength = "20";
       blankEdit.placeholder = `${wordObj.pos}`;
+      blankEdit.classList.add(`${wordObj.pos}`);
       blankEdit.setAttribute("onkeypress", "return event.which != 32");
       editDOM.appendChild(blankEdit);
 
       //? Input For Preview
       const blankPrev = document.createElement("span");
-      blankPrev.innerHTML = `[${wordObj.pos}]`;
+      // blankPrev.innerHTML = `[${wordObj.pos}]`;
       blankPrev.classList.add("prev-blank");
       previewDOM.appendChild(blankPrev);
     } else {
@@ -147,10 +148,12 @@ else {
 
 //! adding actions
 //* cancel button
-const cancel = document.getElementById("cancel-btn");
-cancel.innerText = "reset";
+const reset = document.getElementById("reset-btn");
+const play = document.getElementById("play-btn");
+reset.innerText = "reset";
+play.innerText = "play";
 
-cancel.addEventListener('click', () => {
+reset.addEventListener('click', () => {
   const editBlanks = document.querySelectorAll(".madLibsEdit input");
   const prevBlanks = document.querySelectorAll(".madLibsPreview span");
   editBlanks.forEach(item => {

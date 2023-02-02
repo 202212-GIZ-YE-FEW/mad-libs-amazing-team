@@ -1,47 +1,133 @@
 /**
  * Your CSS goes here.
  */
+:root {
+   --first-clr: rgb(252 203 108);
+   --second-clr: rgba(81, 203, 238);
+   --third-clr: rgb(251, 50, 107);
+   --first-dark-clr: rgb(208, 164, 75);
+   --second-dark-clr: rgb(42, 144, 172);
+   --third-dark-clr: rgb(144, 35, 66);
+   --first-light-clr: rgba(208, 164, 75, 0.5);
+   --second-light-clr: rgb(42, 144, 172, 0.5);
+   --third-light-clr: rgb(144, 35, 66, 0.5);
+
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   outline: 0;
+}
+
 body {
 
-   background-image: url(images/p7.jpg);
-   background-size: 100%100%;
-   background-repeat: no-repeat;
-   margin: 0;
-   height: 100vh;
-   backdrop-filter: blur(2px);
+   /* background-image: url(images/p7.jpg); */
+   /* background-size: 100%100%;
+   background-repeat: no-repeat; */
+   /* margin: 0; */
+   /* height: 100vh; */
+   font-style: italic;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   /* backdrop-filter: blur(2px); */
    /* margin-bottom: 100px;*/
 
 }
 
-#header {
+.container {
+   width: 80%;
+   margin: auto;
+}
 
-   font-style: italic;
-   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.flex {
+   display: flex;
+}
+
+.absolute {
+   position: absolute;
+}
+
+.main-header {
+   background-image: url('./images/education_invest.jfif');
+   background-repeat: no-repeat;
+   background-size: auto;
+   background-position: center;
+   height: 420px;
+}
+
+/* .img-header {
+   position: absolute;
+   top: 0;
+   height: 420px;
+   width: 100%;
+   z-index: -1;
+} */
+
+#title {
    font-weight: bold;
-   color: #ddd;
    text-align: center;
    font-size: 50px;
-
+   margin-block: 5px;
 }
 
 #img {
-   size: 5%;
+   /* size: 5%; */
    border-radius: 50%;
    padding: 5px;
    width: 45px;
    border: 1px solid #ddd;
-   margin-top: 40px;
-
-
+   position: absolute;
+   left: 50%;
+   z-index: 1;
 }
 
-#smallheader {
-   text-align: center;
-   letter-spacing: 12px;
-   padding-top: 10px;
-   color: rgb(215, 215, 191);
+#sub-title {
+   letter-spacing: 8px;
+   color: rgb(167, 167, 140);
    font-size: 20px;
    font-weight: bold;
+   text-align: center;
+}
+
+.lang-switcher {
+   padding: 5px 20px;
+   width: 200px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.main-nav {
+   display: flex;
+}
+
+.buttons>* {
+   padding: 5px 10px;
+   align-self: center;
+   background-color: transparent;
+   border: 2px solid transparent;
+   border-radius: 10px;
+   margin-inline: 10px;
+   cursor: pointer;
+}
+
+#play-btn {
+   border-color: var(--second-clr);
+}
+
+#reset-btn {
+   border-color: var(--first-clr)
+}
+
+#play-btn:hover {
+   border-color: var(--second-dark-clr);
+   background-color: var(--second-clr);
+   color: rgb(0, 0, 0);
+}
+
+#reset-btn:hover {
+   border-color: var(--first-dark-clr);
+   background-color: var(--first-clr);
+   color: rgb(0, 0, 0);
 }
 
 .main {
@@ -53,37 +139,53 @@ body {
    padding-top: 40px;
 }
 
-.madLibsEdit {
-   background-color: rgba(0,0,0,0.6);
-   width: 50%;
-   border-radius: 10px;
-   padding: 2rem 1rem;
-   line-height: 2.3rem;
-   color: rgb(231, 247, 247);
-   font-weight: 600;
-   font-family:'Times New Roman', Times, serif;
-   font-size: 18px;
-   margin: 10px;
-   border: 2px rgb(0, 0, 0) solid;
-   /*margin-bottom: 100px;*/
-
+.bg-card {
+   position: absolute;
+   background-image: url("https://s3.ap-south-1.amazonaws.com/s3.studytonight.com/tutorials/uploads/pictures/1627476216-101156.png");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: calc(100vh - 420px);
+   width: 200px;
+   filter: blur(8px);
+   z-index: -1;
 }
 
-.madLibsPreview {
-   background-color: rgba(0,0,0,0.6);
-   width: 50%;
+.main>* {
+   text-align: center;
+   background-color: rgba(256, 256, 256, 0.5);
+   font-size: 30px;
+   box-shadow: 4px 5px 12px rgb(212 212 212);
+   flex: 1 1 0;
    border-radius: 10px;
-   padding: 2rem 3rem;
-   line-height: 2.3rem;
-   color: rgb(231, 247, 247);
+   line-height: 4.3rem;
    font-weight: 600;
-   font-family:'Times New Roman', Times, serif;
-   font-size: 20px;
-   border: 2px rgb(0, 0, 0) solid;
+   font-size: 18px;
+   margin: 10px;
+   /* height: 300px; */
+   padding: 20px;
+}
+
+.madLibsEdit .adjective {
+   background-color: var(--first-light-clr);
+   border-color: var(--first-dark-clr);
+}
+
+.madLibsEdit .noun {
+   background-color: var(--second-light-clr);
+   border-color: var(--second-dark-clr);
+}
+
+.madLibsEdit .verb {
+   background-color: var(--third-light-clr);
+   border-color: var(--second-dark-clr);
 }
 
 .prev-blank {
-   padding-inline: 10px;
+   padding-inline: 5px;
+   border-bottom: 2px solid black;
+   min-width: 80px;
+   display: inline-block;
 }
 
 p {
@@ -95,35 +197,33 @@ p {
    color: wheat;
 }
 
-input{
+input {
    width: 95px;
    height: 25px;
    border-radius: 15px;
    border-color: rgb(17, 65, 65);
    text-align: center;
-   font-family: 'Montserrat', sans-serif;
-   color: rgb(5, 28, 28) ;
-  font-size: 20px;
- 
-   
- }
+   color: rgb(5, 28, 28);
+   border: 0;
+}
 
- input:focus-within{
+input:focus-within {
    outline: none;
    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
    border: 1px solid rgba(81, 203, 238, 1);
-   
- }
- input:hover{
+
+}
+
+input:hover {
    font-size: 1.4em;
    color: #ba9c9c;
- }
+}
 
- ::placeholder {
-   color: rgb(5, 28, 28) ;
-   font-style: italic; 
+::placeholder {
+   color: rgb(130, 130, 130);
+   font-style: italic;
    font-size: 16px;
- }
+}
 
 @media only screen and (max-width:768px) {
    body {
@@ -138,7 +238,7 @@ input{
 
 @media only screen and (max-width: 500px) {
 
-   #smallheader {
+   #sub-title {
       font-size: medium;
    }
 }
