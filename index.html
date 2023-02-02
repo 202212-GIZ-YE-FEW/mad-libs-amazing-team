@@ -8,31 +8,35 @@
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <header class="main-header">
-            <div class="container">
-                <nav class="main-nav">
-                    <select class="lang-switcher">
-                        <option value="en">English</option>
-                        <option value="ar">Arabic (العربية)</option>
-                    </select>
-                    <div class="buttons flex">
-                        <button type="button" id="reset-btn"></button>
-                        <button type="button" id="play-btn">Play</button>
+        <div id="loader"></div>
+        <div id="content">
+            <header class="main-header">
+                <div class="container">
+                    <nav class="main-nav">
+                        <select class="lang-switcher">
+                            <option value="en">English</option>
+                            <option value="ar">Arabic (العربية)</option>
+                        </select>
+                        <div class="buttons flex">
+                            <button type="button" id="reset-btn"></button>
+                            <button type="button" id="play-btn">Play</button>
+                        </div>
+                    </nav>
+                    <div class="head">
+                        <h1 id="title" data-key="title"></h1>
+                        <h5 id="sub-title" data-key="sub-title"></h5>
                     </div>
-                </nav>
-                <div class="head">
-                    <h1 id="title" data-key="title"></h1>
-                    <h5 id="sub-title" data-key="sub-title"></h5>
                 </div>
+            </header>
+            <div class="main">
+                <div class="madLibsEdit"></div>
+                <div class="madLibsPreview"></div>
             </div>
-        </header>
-        <div class="main">
-            <div class="madLibsEdit"></div>
-            <div class="madLibsPreview"></div>
+            <footer>
+                <p data-key="made-by"></p>
+            </footer>
         </div>
-        <footer>
-            <p data-key="made-by"></p>
-        </footer>
+        
         <script src="init.js"></script>
         <script src="do-not-touch.js"></script>
         <script src="locale.js"></script>
