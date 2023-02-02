@@ -75,7 +75,7 @@ function showStory(processedStory) {
       const blankEdit = document.createElement("input");
       blankEdit.type = "text";
       blankEdit.maxLength = "20";
-      blankEdit.placeholder = `${wordObj.pos}`;
+      // blankEdit.placeholder = `${wordObj.pos}`;
       blankEdit.classList.add(`${wordObj.pos}`);
       blankEdit.setAttribute("onkeypress", "return event.which != 32");
       editDOM.appendChild(blankEdit);
@@ -204,3 +204,11 @@ madLibsEdit.forEach(function (element) {
     firstInput.focus();
   });
 });
+
+// key filledout state
+const editBlanks = document.querySelectorAll(".madLibsEdit input");
+editBlanks.forEach((input, index) => {
+  if(input.value != "")
+    input.style.backgroundColor = "green";
+});
+
