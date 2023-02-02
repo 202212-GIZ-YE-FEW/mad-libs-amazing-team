@@ -102,10 +102,10 @@ function liveUpdate() {
       prevBlanks[index].innerHTML = e.target.value;
     });
     input.addEventListener("change", (e) => {
-        if(input.value !== ""){
-          input.style.backgroundColor = "#15a99c";
-          input.style.color = "#000";
-        }
+      if (input.value !== "") {
+        input.style.backgroundColor = "#15a99c";
+        input.style.color = "#000";
+      }
     });
   });
 }
@@ -188,15 +188,63 @@ function playPause(e) {
 }
 
 window.onload = function () {
-  
   play.addEventListener("click", playPause, false);
 };
 
-/**
- * An array of all elements with class 'madLibsEdit'
- * @type {NodeList}
- */
-const madLibsEdit = document.querySelectorAll(".madLibsEdit");
+// pre-loader function
+var loader;
+
+function loadNow(opacity) {
+  if (opacity <= 0) {
+    displayContent();
+  } else {
+    loader.style.opacity = opacity;
+    window.setTimeout(function () {
+      loadNow(opacity - 0.05);
+    }, 50);
+  }
+}
+
+function displayContent() {
+  loader.style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  loader = document.getElementById("loader");
+  loadNow(1);
+});
+
+
+/// pre-loader function
+var loader;
+
+function loadNow(opacity) {
+  if (opacity <= 0) {
+    displayContent();
+  } else {
+    loader.style.opacity = opacity;
+    window.setTimeout(function () {
+      loadNow(opacity - 0.05);
+    }, 50);
+  }
+}
+
+function displayContent() {
+  loader.style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  loader = document.getElementById("loader");
+  loadNow(1);
+});
+
+// /**
+//  * An array of all elements with class 'madLibsEdit'
+//  * @type {NodeList}
+//  */
+// const madLibsEdit = document.querySelectorAll(".madLibsEdit");
 
 // /**
 //  * Add a mouseover event listener to each element with class 'madLibsEdit'
