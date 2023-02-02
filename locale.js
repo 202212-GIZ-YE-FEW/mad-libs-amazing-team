@@ -1,6 +1,6 @@
 let transDetails = {};
 
-async function setLocale(locale) {
+async function setLocale() {
   document.querySelector(".madLibsEdit").style.setProperty('--background-image', flipImage(document.body.dir));
   langSwicher.value = locale;
   response = await fetch(`./lang/${locale}/details.json`);
