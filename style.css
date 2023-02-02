@@ -11,7 +11,6 @@
    --first-light-clr: rgba(208, 164, 75, 0.5);
    --second-light-clr: rgb(42, 144, 172, 0.5);
    --third-light-clr: rgb(144, 35, 66, 0.5);
-
 }
 
 * {
@@ -24,7 +23,6 @@ body {
    background-image: url('./images/beaver-with-diamond.jpg');
    background-size: cover;
    background-repeat: no-repeat;
-   margin: 0;
    min-height: 100vh;
    font-style: italic;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -74,17 +72,6 @@ body::before {
    text-align: center;
    font-size: 50px;
    margin-block: 5px;
-}
-
-#img {
-   /* size: 5%; */
-   border-radius: 50%;
-   padding: 5px;
-   width: 45px;
-   border: 1px solid #ddd;
-   position: absolute;
-   left: 50%;
-   z-index: 1;
 }
 
 #sub-title {
@@ -156,7 +143,6 @@ body::before {
    font-weight: 600;
    font-size: 18px;
    margin: 10px;
-   /* height: 300px; */
    padding: 20px;
 }
 
@@ -221,12 +207,11 @@ input:focus-within {
    outline: none;
    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
    border: 1px solid rgba(81, 203, 238, 1);
-
 }
 
 input:hover {
-   font-size: 1.4em;
-   color: #ba9c9c;
+   font-size: 1em;
+   color: #6e5050;
 }
 
 ::placeholder {

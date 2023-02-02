@@ -75,7 +75,7 @@ function showStory(processedStory) {
       const blankEdit = document.createElement("input");
       blankEdit.type = "text";
       blankEdit.maxLength = "20";
-      // blankEdit.placeholder = `${wordObj.pos}`;
+      blankEdit.placeholder = `${wordObj.pos}`;
       blankEdit.classList.add(`${wordObj.pos}`);
       blankEdit.setAttribute("onkeypress", "return event.which != 32");
       editDOM.appendChild(blankEdit);
@@ -101,11 +101,12 @@ function liveUpdate() {
     input.addEventListener("input", (e) => {
       prevBlanks[index].innerHTML = e.target.value;
     });
-   
-    // if(input.value !== ""){
-    //   input.style.backgroundColor = "#a8d3d3";
-    //   console.log(input.value);
-    // }
+    input.addEventListener("change", (e) => {
+        if(input.value !== ""){
+          input.style.backgroundColor = "#15a99c";
+          input.style.color = "#000";
+        }
+    });
   });
 }
 
@@ -163,6 +164,8 @@ reset.addEventListener("click", () => {
   const prevBlanks = document.querySelectorAll(".madLibsPreview span");
   editBlanks.forEach((item) => {
     item.value = "";
+    item.style = "";
+    item.classList.add(`${item.placeholder}`);
   });
   prevBlanks.forEach((item) => {
     item.innerHTML = "";
