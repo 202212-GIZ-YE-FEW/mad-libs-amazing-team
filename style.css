@@ -1,47 +1,140 @@
 /**
  * Your CSS goes here.
  */
-body {
-
-   background-image: url(images/p7.jpg);
-   background-size: 100%100%;
-   background-repeat: no-repeat;
-   margin: 0;
-   height: 100vh;
-   backdrop-filter: blur(2px);
-   /* margin-bottom: 100px;*/
+:root {
+   --first-clr: rgb(252 203 108);
+   --second-clr: rgba(81, 203, 238);
+   --third-clr: rgb(251, 50, 107);
+   --first-dark-clr: rgb(208, 164, 75);
+   --second-dark-clr: rgb(42, 144, 172);
+   --third-dark-clr: rgb(144, 35, 66);
+   --first-light-clr: rgba(208, 164, 75, 0.5);
+   --second-light-clr: rgb(42, 144, 172, 0.5);
+   --third-light-clr: rgb(144, 35, 66, 0.5);
 
 }
 
-#header {
+* {
+   margin: 0;
+   padding: 0;
+   outline: 0;
+}
 
+body {
+   background-image: url('./images/beaver-with-diamond.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   margin: 0;
+   min-height: 100vh;
    font-style: italic;
    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   backdrop-filter: blur(3px);
+   position: relative;
+}
+
+body::before {
+   content: "";
+   background: rgba(0, 0, 0, 0.585);
+   z-index: -2;
+   position: absolute;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   top: 0;
+   height: 100%;
+}
+
+.container {
+   width: 80%;
+   margin: auto;
+}
+
+.flex {
+   display: flex;
+}
+
+.absolute {
+   position: absolute;
+}
+
+.main-header {
+   text-align: center;
+   height: 320px;
+}
+
+.head {
+   margin-top: 20px;
+   background-color: rgba(86, 86, 86, 0.922);
+   padding-block: 25px;
+   border-radius: 100px;
+}
+
+#title {
    font-weight: bold;
-   color: #ddd;
    text-align: center;
    font-size: 50px;
-
+   margin-block: 5px;
 }
 
 #img {
-   size: 5%;
+   /* size: 5%; */
    border-radius: 50%;
    padding: 5px;
    width: 45px;
    border: 1px solid #ddd;
-   margin-top: 40px;
-
-
+   position: absolute;
+   left: 50%;
+   z-index: 1;
 }
 
-#smallheader {
-   text-align: center;
-   letter-spacing: 12px;
-   padding-top: 10px;
-   color: rgb(215, 215, 191);
+#sub-title {
+   letter-spacing: 8px;
+   color: rgb(167, 167, 140);
    font-size: 20px;
    font-weight: bold;
+   text-align: center;
+}
+
+.lang-switcher {
+   padding: 5px 20px;
+   width: 200px;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.main-nav {
+   padding-top: 20px;
+   display: flex;
+}
+
+.buttons>* {
+   padding: 5px 10px;
+   align-self: center;
+   background-color: transparent;
+   border: 2px solid transparent;
+   border-radius: 10px;
+   margin-inline: 10px;
+   cursor: pointer;
+}
+
+#play-btn {
+   border-color: var(--second-clr);
+}
+
+#reset-btn {
+   border-color: var(--first-clr)
+}
+
+#play-btn:hover {
+   border-color: var(--second-dark-clr);
+   background-color: var(--second-clr);
+   color: rgb(0, 0, 0);
+}
+
+#reset-btn:hover {
+   border-color: var(--first-dark-clr);
+   background-color: var(--first-clr);
+   color: rgb(0, 0, 0);
 }
 
 .main {
@@ -53,83 +146,96 @@ body {
    padding-top: 40px;
 }
 
-.madLibsEdit {
-   background-color: rgba(0,0,0,0.6);
-   width: 50%;
+.main>* {
+   text-align: center;
+   background-color: rgba(256, 256, 256, 0.75);
+   font-size: 30px;
+   box-shadow: 4px 5px 12px rgb(212 212 212);
    border-radius: 10px;
-   padding: 2rem 1rem;
-   line-height: 2.3rem;
-   color: rgb(231, 247, 247);
+   line-height: 4.3rem;
    font-weight: 600;
-   font-family:'Times New Roman', Times, serif;
    font-size: 18px;
    margin: 10px;
-   border: 2px rgb(0, 0, 0) solid;
-   /*margin-bottom: 100px;*/
-
+   /* height: 300px; */
+   padding: 20px;
 }
 
-.madLibsPreview {
-   background-color: rgba(0,0,0,0.6);
-   width: 50%;
-   border-radius: 10px;
-   padding: 2rem 3rem;
-   line-height: 2.3rem;
-   color: rgb(231, 247, 247);
-   font-weight: 600;
-   font-family:'Times New Roman', Times, serif;
-   font-size: 20px;
-   border: 2px rgb(0, 0, 0) solid;
+.madLibsEdit {
+   position: relative;
+}
+
+.madLibsEdit::before {
+   content: "";
+   background-image: var(--background-image, url("./images/funny_beaver_ltr.png"));
+   background-size: cover;
+   filter: drop-shadow(2mm 2mm 2mm rgba(0, 0, 0, 0.81));
+   width: 150px;
+   height: 150px;
+   position: absolute;
+   inset-block-start: -90px;
+   inset-inline-start: -20px;
+}
+
+.madLibsEdit .adjective {
+   background-color: var(--first-light-clr);
+   border-color: var(--first-dark-clr);
+}
+
+.madLibsEdit .noun {
+   background-color: var(--second-light-clr);
+   border-color: var(--second-dark-clr);
+}
+
+.madLibsEdit .verb {
+   background-color: var(--third-light-clr);
+   border-color: var(--second-dark-clr);
 }
 
 .prev-blank {
-   padding-inline: 10px;
+   padding-inline: 5px;
+   border-bottom: 2px solid black;
+   min-width: 80px;
+   display: inline-block;
+   line-height: initial;
 }
 
 p {
    font-weight: bold;
    font-style: italic;
    text-align: center;
-   margin-top: 20px;
-   margin-bottom: 40px;
    color: wheat;
+   padding-block: 20px;
 }
 
-input{
+input {
    width: 95px;
    height: 25px;
    border-radius: 15px;
    border-color: rgb(17, 65, 65);
    text-align: center;
-   font-family: 'Montserrat', sans-serif;
-   color: rgb(5, 28, 28) ;
-  font-size: 20px;
- 
-   
- }
+   color: rgb(5, 28, 28);
+   border: 0;
+}
 
- input:focus-within{
+input:focus-within {
    outline: none;
    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
    border: 1px solid rgba(81, 203, 238, 1);
-   
- }
- input:hover{
+
+}
+
+input:hover {
    font-size: 1.4em;
    color: #ba9c9c;
- }
+}
 
- ::placeholder {
-   color: rgb(5, 28, 28) ;
-   font-style: italic; 
+::placeholder {
+   color: rgb(130, 130, 130);
+   font-style: italic;
    font-size: 16px;
- }
+}
 
 @media only screen and (max-width:768px) {
-   body {
-      height: 100vh;
-   }
-
    .main {
       flex-direction: column;
    }
@@ -138,7 +244,7 @@ input{
 
 @media only screen and (max-width: 500px) {
 
-   #smallheader {
+   #sub-title {
       font-size: medium;
    }
 }

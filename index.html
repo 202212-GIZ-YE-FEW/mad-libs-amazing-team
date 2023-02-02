@@ -8,20 +8,27 @@
         <link href="style.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <select class="lang-switcher">
-            <option value="en">English</option>
-            <option value="ar">Arabic (العربية)</option>
-        </select>
-        <h1 id="header" data-key="title">
-            <img src="images/fun.jfif" id="img" alt="The Mad Libs background Image">
-        </h1>
-        <h5 id="smallheader" data-key="sub-title"></h5>
+        <header class="main-header">
+            <div class="container">
+                <nav class="main-nav">
+                    <select class="lang-switcher">
+                        <option value="en">English</option>
+                        <option value="ar">Arabic (العربية)</option>
+                    </select>
+                    <div class="buttons flex">
+                        <button type="button" id="reset-btn"></button>
+                        <button type="button" id="play-btn">play</button>
+                    </div>
+                </nav>
+                <div class="head">
+                    <h1 id="title" data-key="title"></h1>
+                    <h5 id="sub-title" data-key="sub-title"></h5>
+                </div>
+            </div>
+        </header>
         <div class="main">
             <div class="madLibsEdit"></div>
             <div class="madLibsPreview"></div>
-        </div>
-        <div class="buttons">
-            <button type="button" id="cancel-btn"></button>
         </div>
         <footer>
             <p data-key="made-by"></p>
