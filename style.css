@@ -48,20 +48,29 @@ body {
 }
 
 .main-header {
-   background-image: url('./images/education_invest.jfif');
-   background-repeat: no-repeat;
-   background-size: auto;
-   background-position: center;
-   height: 420px;
+   text-align: center;
+   height: 320px;
 }
 
-/* .img-header {
+.bg-header {
    position: absolute;
-   top: 0;
-   height: 420px;
+   background-image: url("./images/education_invest.jfif");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: calc(100vh - 420px);
    width: 100%;
+   filter: blur(20px);
+   display: flex;
    z-index: -1;
-} */
+}
+
+.head {
+   margin-top: 20px;
+   background-color: rgba(86, 86, 86, 0.629);
+   padding-block: 25px;
+   border-radius: 100px;
+}
 
 #title {
    font-weight: bold;
@@ -97,6 +106,7 @@ body {
 }
 
 .main-nav {
+   margin-top: 20px;
    display: flex;
 }
 
@@ -186,6 +196,7 @@ body {
    border-bottom: 2px solid black;
    min-width: 80px;
    display: inline-block;
+   line-height: initial;
 }
 
 p {
