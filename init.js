@@ -1,4 +1,6 @@
-let locale = "en";
+let locale = localStorage.getItem(this.currentLanguage) || "en";
+document.body.dir = locale === "en" ? "ltr":"rtl";
+const langSwicher = document.querySelector(".lang-switcher");
 document.addEventListener("DOMContentLoaded", () => {
     setLocale();
     /**
