@@ -98,7 +98,7 @@ function liveUpdate() {
   const prevBlanks = document.querySelectorAll(".madLibsPreview span");
 
   editBlanks.forEach((input, index) => {
-    input.addEventListener("input", e => {
+    input.addEventListener("input", (e) => {
       prevBlanks[index].innerHTML = e.target.value;
     });
   });
@@ -151,36 +151,56 @@ else {
 const reset = document.getElementById("reset-btn");
 const play = document.getElementById("play-btn");
 reset.innerText = "reset";
-play.innerText = "play";
+// play.innerText = "Play";
 
-reset.addEventListener('click', () => {
+reset.addEventListener("click", () => {
   const editBlanks = document.querySelectorAll(".madLibsEdit input");
   const prevBlanks = document.querySelectorAll(".madLibsPreview span");
-  editBlanks.forEach(item => {
-    item.value = ""
+  editBlanks.forEach((item) => {
+    item.value = "";
   });
-  prevBlanks.forEach(item => {
-    item.innerHTML = ""
+  prevBlanks.forEach((item) => {
+    item.innerHTML = "";
   });
 });
+
+// set 'audio' in the global scope
+const audio = new Audio("./audio/cinematic-fairy-tale-story-main-8697.mp3");
+
+// create a play / pause button
+function playPause(e) {
+  // NOTE: audio is from the global scope
+  if (this.textContent === "Play") {
+    audio.play();
+    this.textContent = "Pause";
+  } else {
+    audio.pause();
+    this.textContent = "Play";
+  }
+}
+
+window.onload = function () {
+  
+  play.addEventListener("click", playPause, false);
+};
 
 /**
  * An array of all elements with class 'madLibsEdit'
  * @type {NodeList}
  */
-const madLibsEdit = document.querySelectorAll('.madLibsEdit');
+const madLibsEdit = document.querySelectorAll(".madLibsEdit");
 
 /**
  * Add a mouseover event listener to each element with class 'madLibsEdit'
  * that focuses on the first input element within it.
  */
-madLibsEdit.forEach(function(element) {
-  element.addEventListener('mouseover', function() {
+madLibsEdit.forEach(function (element) {
+  element.addEventListener("mouseover", function () {
     /**
      * The first input element within the hovered element
      * @type {HTMLElement}
      */
-    const firstInput = element.querySelector('input');
+    const firstInput = element.querySelector("input");
     firstInput.focus();
   });
 });
