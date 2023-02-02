@@ -101,6 +101,11 @@ function liveUpdate() {
     input.addEventListener("input", (e) => {
       prevBlanks[index].innerHTML = e.target.value;
     });
+   
+    // if(input.value !== ""){
+    //   input.style.backgroundColor = "#a8d3d3";
+    //   console.log(input.value);
+    // }
   });
 }
 
@@ -205,10 +210,4 @@ madLibsEdit.forEach(function (element) {
   });
 });
 
-// key filledout state
-const editBlanks = document.querySelectorAll(".madLibsEdit input");
-editBlanks.forEach((input, index) => {
-  if(input.value != "")
-    input.style.backgroundColor = "green";
-});
 
