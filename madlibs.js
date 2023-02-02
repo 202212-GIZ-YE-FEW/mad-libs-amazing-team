@@ -164,3 +164,23 @@ reset.addEventListener('click', () => {
   });
 });
 
+/**
+ * An array of all elements with class 'madLibsEdit'
+ * @type {NodeList}
+ */
+const madLibsEdit = document.querySelectorAll('.madLibsEdit');
+
+/**
+ * Add a mouseover event listener to each element with class 'madLibsEdit'
+ * that focuses on the first input element within it.
+ */
+madLibsEdit.forEach(function(element) {
+  element.addEventListener('mouseover', function() {
+    /**
+     * The first input element within the hovered element
+     * @type {HTMLElement}
+     */
+    const firstInput = element.querySelector('input');
+    firstInput.focus();
+  });
+});
