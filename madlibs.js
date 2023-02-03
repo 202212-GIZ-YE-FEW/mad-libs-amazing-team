@@ -215,8 +215,12 @@ document.addEventListener("DOMContentLoaded", function () {
   loadNow(1);
 });
 
+ feature/-no-ref/add-pre-loader-while-the-page-loading-43
+// pre-loader function
+
 
 /// pre-loader function
+ main
 var loader;
 
 function loadNow(opacity) {
@@ -239,6 +243,8 @@ document.addEventListener("DOMContentLoaded", function () {
   loader = document.getElementById("loader");
   loadNow(1);
 });
+// feature/-no-ref/add-pre-loader-while-the-page-loading-43
+
 
 // /**
 //  * An array of all elements with class 'madLibsEdit'
@@ -260,3 +266,5 @@ document.addEventListener("DOMContentLoaded", function () {
 //     firstInput.focus();
 //   });
 // });
+
+main
