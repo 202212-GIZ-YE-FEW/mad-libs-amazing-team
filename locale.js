@@ -1,6 +1,9 @@
 let transDetails = {};
+
 async function setLocale() {
-  response = await fetch(`/lang/${locale}/details.json`);
+  document.querySelector(".madLibsEdit").style.setProperty('--background-image', flipImage(document.body.dir));
+  langSwicher.value = locale;
+  response = await fetch(`./lang/${locale}/details.json`);
   transDetails = await response.json();
   translatePage();
 }
@@ -19,10 +22,9 @@ const flipImage = (dir) => {
   return `url(./images/funny_beaver_${dir}.png)`;
 }
 
-
-const langSwicher = document.querySelector(".lang-switcher");
 langSwicher.addEventListener("change", e => {
     locale = e.target.value;
+    localStorage.setItem(this.currentLanguage, locale);
     document.body.dir = locale === "en" ? "ltr":"rtl";
     document.querySelector(".madLibsEdit").style.setProperty('--background-image', flipImage(document.body.dir))
     setLocale();

@@ -101,6 +101,12 @@ function liveUpdate() {
     input.addEventListener("input", (e) => {
       prevBlanks[index].innerHTML = e.target.value;
     });
+    input.addEventListener("change", (e) => {
+      if (input.value !== "") {
+        input.style.backgroundColor = "#15a99c";
+        input.style.color = "#000";
+      }
+    });
   });
 }
 
@@ -158,6 +164,8 @@ reset.addEventListener("click", () => {
   const prevBlanks = document.querySelectorAll(".madLibsPreview span");
   editBlanks.forEach((item) => {
     item.value = "";
+    item.style = "";
+    item.classList.add(`${item.placeholder}`);
   });
   prevBlanks.forEach((item) => {
     item.innerHTML = "";
@@ -180,30 +188,8 @@ function playPause(e) {
 }
 
 window.onload = function () {
-  
   play.addEventListener("click", playPause, false);
 };
-
-/**
- * An array of all elements with class 'madLibsEdit'
- * @type {NodeList}
- */
-const madLibsEdit = document.querySelectorAll(".madLibsEdit");
-
-/**
- * Add a mouseover event listener to each element with class 'madLibsEdit'
- * that focuses on the first input element within it.
- */
-madLibsEdit.forEach(function (element) {
-  element.addEventListener("mouseover", function () {
-    /**
-     * The first input element within the hovered element
-     * @type {HTMLElement}
-     */
-    const firstInput = element.querySelector("input");
-    firstInput.focus();
-  });
-});
 
 // pre-loader function
 var loader;
@@ -228,3 +214,57 @@ document.addEventListener("DOMContentLoaded", function () {
   loader = document.getElementById("loader");
   loadNow(1);
 });
+
+ feature/-no-ref/add-pre-loader-while-the-page-loading-43
+// pre-loader function
+
+
+/// pre-loader function
+ main
+var loader;
+
+function loadNow(opacity) {
+  if (opacity <= 0) {
+    displayContent();
+  } else {
+    loader.style.opacity = opacity;
+    window.setTimeout(function () {
+      loadNow(opacity - 0.05);
+    }, 50);
+  }
+}
+
+function displayContent() {
+  loader.style.display = "none";
+  document.getElementById("content").style.display = "block";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  loader = document.getElementById("loader");
+  loadNow(1);
+});
+// feature/-no-ref/add-pre-loader-while-the-page-loading-43
+
+
+// /**
+//  * An array of all elements with class 'madLibsEdit'
+//  * @type {NodeList}
+//  */
+// const madLibsEdit = document.querySelectorAll(".madLibsEdit");
+
+// /**
+//  * Add a mouseover event listener to each element with class 'madLibsEdit'
+//  * that focuses on the first input element within it.
+//  */
+// madLibsEdit.forEach(function (element) {
+//   element.addEventListener("mouseover", function () {
+//     /**
+//      * The first input element within the hovered element
+//      * @type {HTMLElement}
+//      */
+//     const firstInput = element.querySelector("input");
+//     firstInput.focus();
+//   });
+// });
+
+main
